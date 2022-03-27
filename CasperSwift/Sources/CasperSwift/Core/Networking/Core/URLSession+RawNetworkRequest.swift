@@ -13,7 +13,7 @@ extension URLSession {
         print("========================")
         print(urlRequest.httpBody.flatMap { String(data: $0, encoding: .utf8) } ?? "")
         let response = try await URLSession.shared.data(for: urlRequest, delegate: nil)
-        print(String(data: response.0, encoding: .utf8) ?? "")
+        //print(String(data: response.0, encoding: .utf8) ?? "")
         print("")
         return try networkRequest.deserializer(response.0)
     }

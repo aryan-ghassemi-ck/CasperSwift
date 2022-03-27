@@ -31,4 +31,15 @@ class ChainGetStateRootHashRequestTests: XCTestCase {
         let result = try await casperClient.getStateRootHash(blockIdentifier: .height(blockHeight))
         XCTAssertEqual(result, expectedStateRootHash)
     }
+    
+    func testRootHashInvalidData() async {
+        do {
+            _ = try await casperClient.getStateRootHash(blockIdentifier: .height(473861000))
+            XCTFail("Should have failed")
+        } catch let error as JsonRpcError {
+            XCTAssertEqual(error.code, -32001)
+        } catch {
+            XCTFail("Should have caught JsonRpcError")
+        }
+    }
 }
