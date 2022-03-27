@@ -49,7 +49,7 @@ final class HomeViewModel: ObservableObject {
 
                 let accountRequest = StateGetItemRequest(
                     params: StateGetItemParameters(
-                        keyRepresentable: .accountHash(accountHash),
+                        hashType: .accountHash(accountHash),
                         stateRootHash: rootHash.stateRootHash
                     )
                 )

@@ -17,29 +17,9 @@ public struct StateGetItemParameters: Codable {
     public let key: String
     public let stateRootHash: String
     
-    public init(keyRepresentable: KeyRepresentable, stateRootHash: String) {
-        self.key = keyRepresentable.key
+    public init(hashType: HashType, stateRootHash: String) {
+        self.key = hashType.value
         self.stateRootHash = stateRootHash
-    }
-    
-    public enum KeyRepresentable {
-        case publicKey(String)
-        case accountHash(String)
-        case contractAddress(String)
-        case uref(String)
-        case transfer(String)
-        case deployInfo(String)
-        
-        var key: String {
-            switch self {
-            case .accountHash(let key):
-                return "account-hash-\(key)"
-            case .publicKey(let key):
-                return key
-            default:
-                return "TODO"
-            }
-        }
     }
 }
 

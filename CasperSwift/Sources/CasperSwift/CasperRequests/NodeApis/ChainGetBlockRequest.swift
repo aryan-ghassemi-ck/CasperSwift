@@ -63,11 +63,3 @@ public struct Proof: Decodable {
     public let publicKey: String
     public let signature: String
 }
-
-public struct ChainGetBlockParameter: Encodable {
-    public let Hash: String
-    
-    public init(hash: String) {
-        self.Hash = hash
-    }
-}

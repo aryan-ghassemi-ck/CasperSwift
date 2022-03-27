@@ -35,7 +35,7 @@ public struct Deploy: Decodable {
     let session: Session
 }
 
-public struct Approval: Decodable {
+public struct Approval: Codable {
     public let signature: String
     public let signer: String
 }
