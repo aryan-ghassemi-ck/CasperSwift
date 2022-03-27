@@ -66,6 +66,10 @@ struct ED25519Crypto {
             throw ED25519CryptoError.curve25519Failed(error)
         }
     }
+    
+    func sign(data: Data) throws -> Data {
+        try privateKey.signature(for: data)
+    }
 }
 
 public enum ED25519CryptoError: Error {
