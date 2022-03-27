@@ -22,7 +22,6 @@ enum CasperEndpoint {
      If you are to interact with chain please use address http://<node ip address>:7777/rpc
      node ip address can be found here https://testnet.cspr.live/
      */
-    static let node = URL(string: "https://node-clarity-mainnet.make.services/rpc")!
-    
+
     static let eventStore = URL(string: "https://event-store-api-clarity-mainnet.make.services")!
 }

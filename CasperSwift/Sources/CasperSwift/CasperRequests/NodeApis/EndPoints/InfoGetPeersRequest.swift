@@ -8,8 +8,8 @@
 import Foundation
 
 public class InfoGetPeersRequest: JsonRpcNetworkRequest<InfoGetPeersResult> {
-    public convenience init() {
-        self.init(url: CasperEndpoint.node, method: "info_get_peers", param: NoParam())
+    public convenience init(environment: CasperEnvironment = .mainnet) {
+        self.init(url: environment.url, method: "info_get_peers", param: NoParam())
     }
 }
 

@@ -8,8 +8,8 @@
 import Foundation
 
 public class StateGetItemRequest: JsonRpcNetworkRequest<StateGetItemResult> {
-    public convenience init(params: StateGetItemParameters) {
-        self.init(url: CasperEndpoint.node ,method: "state_get_item", param: params)
+    public convenience init(params: StateGetItemParameters, environment: CasperEnvironment = .mainnet) {
+        self.init(url: environment.url ,method: "state_get_item", param: params)
     }
 }
 

@@ -8,8 +8,8 @@
 import Foundation
 
 public class InfoGetStatusRequest: JsonRpcNetworkRequest<InfoGetStatusResult> {
-    public convenience init() {
-        self.init(url: CasperEndpoint.node ,method: "info_get_status", param: NoParam())
+    public convenience init(environment: CasperEnvironment = .mainnet) {
+        self.init(url: environment.url ,method: "info_get_status", param: NoParam())
     }
 }
 

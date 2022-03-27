@@ -8,8 +8,8 @@
 import Foundation
 
 public class ChainGetStateRootHashRequest: JsonRpcNetworkRequest<ChainGetStateRootHashResult> {
-    public convenience init(blockIdentifier: BlockIdentifier? = nil) {
-        self.init(url: CasperEndpoint.node, method: "chain_get_state_root_hash", param: blockIdentifier?.parameterValue)
+    public convenience init(blockIdentifier: BlockIdentifier? = nil, environment: CasperEnvironment = .mainnet) {
+        self.init(url: environment.url, method: "chain_get_state_root_hash", param: blockIdentifier?.parameterValue)
     }
 }
 

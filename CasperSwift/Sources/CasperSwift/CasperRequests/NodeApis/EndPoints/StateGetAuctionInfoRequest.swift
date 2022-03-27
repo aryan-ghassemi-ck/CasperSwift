@@ -8,8 +8,8 @@
 import Foundation
 
 public class StateGetAuctionInfoRequest: JsonRpcNetworkRequest<StateGetAuctionInfoResult> {
-    public convenience init() {
-        self.init(url: CasperEndpoint.node, method: "state_get_auction_info", param: NoParam())
+    public convenience init(environment: CasperEnvironment = .mainnet) {
+        self.init(url: environment.url, method: "state_get_auction_info", param: NoParam())
     }
 }
 

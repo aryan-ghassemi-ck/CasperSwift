@@ -9,8 +9,8 @@ import Foundation
 
 /// https://casper-docusaurus.scaliolabs.com/docs/workflow/transfer-workflow/
 public class AccountPutDeployRequest: JsonRpcNetworkRequest<AccountPutDeployResult> {
-    public convenience init(param: AccountPutDeployParam) {
-        self.init(url: CasperEndpoint.node, method: "account_put_deploy", param: param)
+    public convenience init(param: AccountPutDeployParam, environment: CasperEnvironment = .mainnet) {
+        self.init(url: environment.url, method: "account_put_deploy", param: param)
     }
 }
 

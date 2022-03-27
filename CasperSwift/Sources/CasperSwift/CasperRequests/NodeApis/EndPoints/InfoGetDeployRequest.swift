@@ -8,8 +8,8 @@
 import Foundation
 
 public class InfoGetDeployRequest: JsonRpcNetworkRequest<InfoGetDeployResult> {
-    public convenience init(param: InfoGetDeployParameters) {
-        self.init(url: CasperEndpoint.node, method: "info_get_deploy", param: param)
+    public convenience init(param: InfoGetDeployParameters, environment: CasperEnvironment = .mainnet) {
+        self.init(url: environment.url, method: "info_get_deploy", param: param)
     }
 }
 

@@ -8,8 +8,8 @@
 import Foundation
 
 public class ChainGetBlockRequest: JsonRpcNetworkRequest<ChainGetBlockResult> {
-    public convenience init(blockIdentifier: BlockIdentifier) {
-        self.init(url: CasperEndpoint.node, method: "chain_get_block", param: blockIdentifier.parameterValue)
+    public convenience init(blockIdentifier: BlockIdentifier, environment: CasperEnvironment = .mainnet) {
+        self.init(url: environment.url, method: "chain_get_block", param: blockIdentifier.parameterValue)
     }
 }
 
