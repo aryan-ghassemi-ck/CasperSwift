@@ -36,3 +36,44 @@ extension Data {
       return String(utf16CodeUnits: hexChars, count: hexChars.count)
     }
 }
+
+extension Data {
+    func removingLeadingZeros() -> Data {
+        var array = bytes
+        
+        for byte in array {
+            if byte == 0 {
+                array.removeFirst()
+            } else {
+                break
+            }
+        }
+        
+        return Data(array)
+    }
+    
+    func addingZeroPads(negative: Bool, maxSize: Int) -> Data {
+        if bytes.count < maxSize {
+//            // Zero pad
+//            byte[] copy = new byte[maxBytes];
+//            Arrays.fill(copy, 0, maxBytes - bytes.length, (byte) (negative ? 0xFF : 0));
+//            System.arraycopy(bytes, 0, copy, maxBytes - bytes.length, bytes.length);
+//            return copy;
+            fatalError()
+        } else {
+            return self
+        }
+    }
+}
+
+extension Data {
+    struct HexEncodingOptions: OptionSet {
+        let rawValue: Int
+        static let upperCase = HexEncodingOptions(rawValue: 1 << 0)
+    }
+
+    func hexEncodedString(options: HexEncodingOptions = []) -> String {
+        let format = options.contains(.upperCase) ? "%02hhX" : "%02hhx"
+        return self.map { String(format: format, $0) }.joined()
+    }
+}

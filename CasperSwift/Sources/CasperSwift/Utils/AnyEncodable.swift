@@ -7,6 +7,8 @@
 
 import Foundation
 
+// https://github.com/Flight-School/AnyCodable/blob/master/Sources/AnyCodable/AnyEncodable.swift
+
 @frozen public struct AnyEncodable: Encodable {
     public let value: Any
 

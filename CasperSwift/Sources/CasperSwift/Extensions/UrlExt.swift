@@ -9,6 +9,7 @@ import Foundation
 
 extension URL {
 
+    // TODO: Remove use of !
     func appending(queryItem: String, value: String?) -> URL {
         guard var urlComponents = URLComponents(string: absoluteString) else { return absoluteURL }
         var queryItems: [URLQueryItem] = urlComponents.queryItems ??  []
