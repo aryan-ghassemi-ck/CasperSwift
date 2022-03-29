@@ -48,6 +48,8 @@ indirect enum CLType: CLTypeDataRepresentable {
             return try uint32.serialize()
         case .U64(let uint64):
             return try uint64.serialize()
+        case .BytesArray(let data):
+            return try data.serialize()
         default:
             // TODO: Implement the rest
             fatalError()
