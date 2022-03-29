@@ -54,6 +54,9 @@ extension Data {
     
     func addingZeroPads(negative: Bool, maxSize: Int) -> Data {
         if bytes.count < maxSize {
+            let diff = maxSize - bytes.count
+            let leadingZeros = Array<UInt8>(repeating: 0, count: diff)
+            return Data(leadingZeros) + self
 //            // Zero pad
 //            byte[] copy = new byte[maxBytes];
 //            Arrays.fill(copy, 0, maxBytes - bytes.length, (byte) (negative ? 0xFF : 0));
