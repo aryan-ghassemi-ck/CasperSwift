@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CLAccessRights: Int8 {
+public enum CLAccessRights: UInt8 {
     case none = 0
     case read = 1
     case write = 2
@@ -15,5 +15,9 @@ enum CLAccessRights: Int8 {
     case add = 4
     case readAdd = 5
     case addWrite = 6
-    case readAndWrite = 7
+    case readAddWrite = 7
+    
+    var bits: UInt8 {
+        rawValue
+    }
 }

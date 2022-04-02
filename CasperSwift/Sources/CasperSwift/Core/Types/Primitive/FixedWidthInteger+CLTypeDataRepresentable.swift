@@ -38,7 +38,7 @@ extension FixedWidthInteger {
             let byteToPadWith: UInt8 = self < 0 ? 0xFF : 0
             return byteArray + Array<UInt8>(repeating: byteToPadWith, count: numberOfZeros)
         } else {
-            return byteArray;
+            return byteArray
         }
     }
 }

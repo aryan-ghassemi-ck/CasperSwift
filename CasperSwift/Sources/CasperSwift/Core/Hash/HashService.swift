@@ -11,7 +11,7 @@ import Foundation
 struct HashService {
 
     func getAccountHash(accountKey: String) throws -> String {
-        fatalError()
+        "WTF"
 //        try getAccountHash(data: Data(fromHexEncodedString: accountKey)!)
     }
 

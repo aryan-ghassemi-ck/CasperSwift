@@ -15,13 +15,13 @@ indirect enum CLType: CLTypeDataRepresentable {
     case U8(UInt8)
     case U32(UInt32)
     case U64(UInt64)
-    case U128(UInt)
+    case U128(UInt128)
     case U256(UInt)
-    case U512(UInt)
+    case U512(UInt512)
     case Unit
     case String(String)
     case PublicKey(String)
-    case URef(String)
+    case URef(URef)
     case Key(String)
     case Option(CLType?)
     case List([CLType])
@@ -48,8 +48,14 @@ indirect enum CLType: CLTypeDataRepresentable {
             return try uint32.serialize()
         case .U64(let uint64):
             return try uint64.serialize()
+        case .U128(let uint128):
+            return try uint128.serialize()
+        case .U512(let uint512):
+            return try uint512.serialize()
         case .BytesArray(let data):
             return try data.serialize()
+        case .URef(let uref):
+            return try uref.serialize()
         default:
             // TODO: Implement the rest
             fatalError()
