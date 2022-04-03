@@ -27,8 +27,8 @@ class DeployTests: XCTestCase {
             header: header,
             approvals: [approval],
             hash: "",
-            paymentArgs: PaymentDeployArgs(amount: 100000000),
-            sessionArgs: TransferDeployArgs(amount: 12300000000000, to: "Some Account"))
+            payment: try ExecutableDeploymentItem.createPaymentItem(amount: 100000000),
+            session: try ExecutableDeploymentItem.createTransferItem(amount: 12300000000000, to: "Some Account"))
         
         let data = try JSONEncoder().encode(deploy)
         let json: [String: Any]? = try JSONSerialization.jsonObject(with: data) as? [String: Any]

@@ -35,18 +35,14 @@ public struct Deploy: Encodable {
         header: Header,
         approvals: [Approval],
         hash: String,
-        paymentArgs: PaymentDeployArgs,
-        sessionArgs: NamedDeployArgs) throws {
+        payment: ExecutableDeploymentItem,
+        session: ExecutableDeploymentItem) throws {
             
         self.header = header
         self.approvals = approvals
         self.hash = hash
-        self.payment = try paymentArgs.asAnyEncodable()
-        self.session = try sessionArgs.asAnyEncodable()
-    }
-    
-    static func transfer() -> Deploy {
-        fatalError()
+        self.payment = try payment.asAnyEncodable()
+        self.session = try session.asAnyEncodable()
     }
 }
 
