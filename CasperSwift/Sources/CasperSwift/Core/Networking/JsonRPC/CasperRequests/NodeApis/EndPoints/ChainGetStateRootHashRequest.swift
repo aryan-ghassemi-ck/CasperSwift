@@ -9,7 +9,7 @@ import Foundation
 
 public class ChainGetStateRootHashRequest: JsonRpcNetworkRequest<ChainGetStateRootHashResult> {
     public convenience init(blockIdentifier: BlockIdentifier? = nil, environment: CasperEnvironment = .mainnet) {
-        self.init(url: environment.url, method: "chain_get_state_root_hash", param: blockIdentifier?.parameterValue)
+        self.init(url: environment.url, method: .chainGetStateRootHash, param: blockIdentifier?.parameterValue)
     }
 }
 

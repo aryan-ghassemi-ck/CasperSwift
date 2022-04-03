@@ -10,9 +10,11 @@ import Foundation
 /// https://casper-docusaurus.scaliolabs.com/docs/workflow/transfer-workflow/
 public class AccountPutDeployRequest: JsonRpcNetworkRequest<AccountPutDeployResult> {
     public convenience init(param: AccountPutDeployParam, environment: CasperEnvironment = .mainnet) {
-        self.init(url: environment.url, method: "account_put_deploy", param: param)
+        self.init(url: environment.url, method: .accountPutDeploy, param: param)
     }
 }
+
+public typealias DeployHash = String
 
 public struct AccountPutDeployResult: Decodable {
     public let apiVersion: String

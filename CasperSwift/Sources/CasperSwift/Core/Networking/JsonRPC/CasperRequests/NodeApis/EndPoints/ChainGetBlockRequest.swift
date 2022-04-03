@@ -9,7 +9,7 @@ import Foundation
 
 public class ChainGetBlockRequest: JsonRpcNetworkRequest<ChainGetBlockResult> {
     public convenience init(blockIdentifier: BlockIdentifier, environment: CasperEnvironment = .mainnet) {
-        self.init(url: environment.url, method: "chain_get_block", param: blockIdentifier.parameterValue)
+        self.init(url: environment.url, method: .chainGetBlock, param: blockIdentifier.parameterValue)
     }
 }
 

@@ -9,7 +9,7 @@ import Foundation
 
 public class InfoGetPeersRequest: JsonRpcNetworkRequest<InfoGetPeersResult> {
     public convenience init(environment: CasperEnvironment = .mainnet) {
-        self.init(url: environment.url, method: "info_get_peers", param: NoParam())
+        self.init(url: environment.url, method: .infoGetPeers, param: NoParam())
     }
 }
 

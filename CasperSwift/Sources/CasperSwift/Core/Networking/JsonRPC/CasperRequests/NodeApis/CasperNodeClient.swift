@@ -53,11 +53,28 @@ public struct CasperNodeClient {
         return try await session.request(from: request).balanceValue
     }
     
-    public func getStoredValue(hashType: HashType, stateRootHash: String) async throws -> StoredValue {
+    public func getAccountInfo(hashType: HashType, stateRootHash: String) async throws -> StoredValue {
         let request = StateGetItemRequest(
             params: StateGetItemParameters(hashType: hashType, stateRootHash: stateRootHash),
             environment: environment)
         
         return try await session.request(from: request).storedValue
+    }
+    
+    public func putDeploy(deploy: AccountPutDeployParam.Deploy) async throws -> DeployHash {
+        let request = AccountPutDeployRequest(
+            param: AccountPutDeployParam(deploy: deploy),
+            environment: environment)
+
+        return try await session.request(from: request).deployHash
+    }
+}
+
+/// Helpers
+extension CasperNodeClient {
+
+    public func getAccountMainPurseURef(accountKey: String, stateRootHash: String) async throws -> URef {
+        let info = try await getAccountInfo(hashType: .accountHash(accountKey), stateRootHash: stateRootHash)
+        return try URef(urefString: info.Account.mainPurse)
     }
 }

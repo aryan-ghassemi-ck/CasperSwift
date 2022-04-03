@@ -9,7 +9,7 @@ import Foundation
 
 public class StateGetBalanceRequest: JsonRpcNetworkRequest<StateGetBalanceResult> {
     public convenience init(params: StateGetBalanceParameters, environment: CasperEnvironment = .mainnet) {
-        self.init(url: environment.url ,method: "state_get_balance", param: params)
+        self.init(url: environment.url ,method: .stateGetBalance, param: params)
     }
 }
 

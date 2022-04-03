@@ -8,20 +8,21 @@
 import Foundation
 
 public struct URef {
+
     public let bytes: [UInt8]
     public let accessRights: CLAccessRights
     
-    init(bytes: [UInt8], accessRights: CLAccessRights) {
+    public init(bytes: [UInt8], accessRights: CLAccessRights) {
         self.bytes = bytes
         self.accessRights = accessRights
     }
     
-    init(hexString: String, accessRights: CLAccessRights) {
+    public init(hexString: String, accessRights: CLAccessRights) {
         self.bytes = hexString.hexDecodedData.bytes
         self.accessRights = accessRights
     }
     
-    init(urefString: String) throws {
+    public init(urefString: String) throws {
         self.bytes = try Self.bytes(from: urefString)
         
         guard
@@ -55,7 +56,7 @@ public struct URef {
     }
 }
 
-enum UrefError: Error {
+public enum UrefError: Error {
     case invalidUref(String)
     case invalidAccessRightValue(UInt8)
 }

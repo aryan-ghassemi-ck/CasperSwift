@@ -9,7 +9,7 @@ import Foundation
 
 public class StateGetItemRequest: JsonRpcNetworkRequest<StateGetItemResult> {
     public convenience init(params: StateGetItemParameters, environment: CasperEnvironment = .mainnet) {
-        self.init(url: environment.url ,method: "state_get_item", param: params)
+        self.init(url: environment.url ,method: .stateGetItem, param: params)
     }
 }
 

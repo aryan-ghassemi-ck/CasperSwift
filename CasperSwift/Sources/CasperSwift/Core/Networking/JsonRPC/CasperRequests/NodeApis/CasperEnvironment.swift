@@ -10,6 +10,7 @@ import Foundation
 public enum CasperEnvironment {
     case mainnet
     case testnet
+    case custom(urlString: String, port: UInt)
     
     var url: URL {
         switch self {
@@ -17,6 +18,8 @@ public enum CasperEnvironment {
             return URL(string: "https://node-clarity-mainnet.make.services/rpc")!
         case .testnet:
             return URL(string: "https://node-clarity-testnet.make.services/rpc")!
+        case .custom(let urlString, let port):
+            return URL(string: "\(urlString):\(port)")!
         }
     }
 }

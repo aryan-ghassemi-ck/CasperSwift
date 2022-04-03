@@ -9,7 +9,7 @@ import Foundation
 
 public class JsonRpcNetworkRequest<ResultType>: CodableNetworkRequest<ResultType> where ResultType: Decodable {
  
-    convenience init<T: Encodable>(url: URL, method: String, param: T?) {
+    convenience init<T: Encodable>(url: URL, method: CasperNodeMethod, param: T?) {
         let deserializer: Deserializer = {
             let response = try JsonRpcCoder.decoder.decode(JsonRpcResponse<ResultType>.self, from: $0)
             
@@ -25,7 +25,7 @@ public class JsonRpcNetworkRequest<ResultType>: CodableNetworkRequest<ResultType
         self.init(
             url: url,
             httpMethod: .post,
-            encodableBody: JsonRpcRequestBody(method: method, params: param),
+            encodableBody: JsonRpcRequestBody(method: method.rawValue, params: param),
             httpHeaders: [:],
             jsonDecoder: JsonRpcCoder.decoder,
             jsonEncoder: JsonRpcCoder.encoder,
