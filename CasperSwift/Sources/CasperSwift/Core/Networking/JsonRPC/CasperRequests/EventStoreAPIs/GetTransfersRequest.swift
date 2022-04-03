@@ -10,7 +10,7 @@ import Foundation
 public class GetTransfersRequest: EventStoreNetworkRequest<[MyTransfer]> {
     public convenience init(accountHash: String, page: Int, limit: Int, order: OrderDirection = .descending) {
         
-        let url = CasperEndpoint.eventStore
+        let url = EventStoreURL
             .appendingPathComponent("accounts")
             .appendingPathComponent(accountHash)
             .appendingPathComponent("transfers")

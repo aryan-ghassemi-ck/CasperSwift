@@ -67,14 +67,14 @@ extension URef: Taggable {
 
 extension URef: CLTypeDataRepresentable {
     func serialize() throws -> Data {
-        /*
-         return new ByteArrayBuilder()
-                 .append((byte) ((URef) toSerialize).getTag())
-                 .append(((URef) toSerialize).getBytes())
-                 .append(((URef) toSerialize).getAccessRights().getBits())
-                 .toByteArray();
-         */
         let bytes: [UInt8] = [tag] + bytes + [accessRights.rawValue]
         return Data(bytes)
+    }
+}
+
+extension URef: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        let ccount = Data(bytes).hexEncodedString
+        return "uref-\(ccount)-00\(accessRights.rawValue)"
     }
 }

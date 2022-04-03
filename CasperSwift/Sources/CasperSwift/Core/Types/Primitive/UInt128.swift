@@ -7,8 +7,8 @@
 
 import Foundation
 
-class UInt128: BigInt {
-    init(_ string: String) throws {
+public class UInt128: BigInt {
+    public init(_ string: String) throws {
         try super.init(string: string, sizeInBits: 128, signed: false)
     }
 }

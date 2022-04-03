@@ -23,33 +23,8 @@ public struct InfoGetDeployParameters: Codable {
 
 public struct InfoGetDeployResult: Decodable {
     public let apiVersion: String
-    public let deploy: Deploy
+    //public let deploy: Deploy
     public let executionResult: ExecutionResult
-}
-
-public struct Deploy: Decodable {
-    let approvals: [Approval]
-    let hash: String
-    let header: Header
-    let payment: Payment
-    let session: Session
-}
-
-public struct Approval: Codable {
-    public let signature: String
-    public let signer: String
-}
-
-extension Deploy {
-    public struct Header: Decodable {
-        public let account: String
-        public let bodyHash: String
-        public let chainName: String
-        public let dependencies: [String]
-        public let gasPrice: Int
-        public let timestamp: String
-        public let ttl: String
-    }
 }
 
 public struct Payment: Decodable {

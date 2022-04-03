@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BigInt {
+public class BigInt {
 
     private let backingData: _BigInt<UInt>
     private let sizeInBits: Int

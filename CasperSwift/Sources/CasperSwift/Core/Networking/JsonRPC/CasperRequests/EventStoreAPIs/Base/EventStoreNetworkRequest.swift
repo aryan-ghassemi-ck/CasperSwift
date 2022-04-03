@@ -7,6 +7,8 @@
 
 import Foundation
 
+public let EventStoreURL = URL(string: "https://event-store-api-clarity-mainnet.make.services")!
+
 public class EventStoreNetworkRequest<T: Decodable>: CodableNetworkRequest<T> {
     public convenience init(url: URL) {
         let deserializer: Deserializer = {

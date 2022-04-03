@@ -9,7 +9,7 @@ import Foundation
 
 public class GetSupplyRequest: EventStoreNetworkRequest<SupplyResult> {
     public convenience init() {
-        self.init(url: CasperEndpoint.eventStore.appendingPathComponent("supply"))
+        self.init(url: EventStoreURL.appendingPathComponent("supply"))
     }
 }
 

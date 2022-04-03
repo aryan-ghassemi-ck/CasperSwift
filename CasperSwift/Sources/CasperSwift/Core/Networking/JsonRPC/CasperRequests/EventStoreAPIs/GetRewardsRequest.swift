@@ -10,7 +10,7 @@ import Foundation
 public class GetRewardsRequest: EventStoreNetworkRequest<[Reward]> {
     public convenience init(publicKey: String, page: Int, limit: Int, order: OrderDirection = .descending) {
         
-        let url = CasperEndpoint.eventStore
+        let url = EventStoreURL
             .appendingPathComponent("delegators")
             .appendingPathComponent(publicKey)
             .appendingPathComponent("rewards")

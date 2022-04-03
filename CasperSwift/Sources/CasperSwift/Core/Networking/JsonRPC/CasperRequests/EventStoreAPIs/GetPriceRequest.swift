@@ -9,6 +9,6 @@ import Foundation
 
 public class GetPriceRequest: EventStoreNetworkRequest<Float> {
     public convenience init() {
-        self.init(url: CasperEndpoint.eventStore.appendingPathComponent("rates/1/amount"))
+        self.init(url: EventStoreURL.appendingPathComponent("rates/1/amount"))
     }
 }

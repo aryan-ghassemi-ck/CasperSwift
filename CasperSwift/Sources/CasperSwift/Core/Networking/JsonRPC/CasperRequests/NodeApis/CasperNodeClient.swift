@@ -61,7 +61,7 @@ public struct CasperNodeClient {
         return try await session.request(from: request).storedValue
     }
     
-    public func putDeploy(deploy: AccountPutDeployParam.Deploy) async throws -> DeployHash {
+    public func putDeploy(deploy: Deploy) async throws -> DeployHash {
         let request = AccountPutDeployRequest(
             param: AccountPutDeployParam(deploy: deploy),
             environment: environment)

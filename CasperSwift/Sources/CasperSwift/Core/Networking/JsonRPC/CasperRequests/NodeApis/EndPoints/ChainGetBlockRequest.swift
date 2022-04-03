@@ -53,13 +53,17 @@ extension Block {
     }
 }
 
-public struct Body: Decodable {
-    public let proposer: String
-    public let deployHashes: [String]
-    public let transferHashes: [String]
+extension Block {
+    public struct Body: Decodable {
+        public let proposer: String
+        public let deployHashes: [String]
+        public let transferHashes: [String]
+    }
 }
 
-public struct Proof: Decodable {
-    public let publicKey: String
-    public let signature: String
+extension Block {
+    public struct Proof: Decodable {
+        public let publicKey: String
+        public let signature: String
+    }
 }
