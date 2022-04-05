@@ -1,4 +1,4 @@
 # CasperSwift
 
-iOS & Mac OS Swift framework to interact wth casper network
+iOS & Mac OS Swift SDK to interact wth casper network
 Work in Progress
